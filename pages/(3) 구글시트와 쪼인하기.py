@@ -2,10 +2,10 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
 st.title("구글시트에 있는 문제와 정답으로 즉각 피드백하는 앱 만들기")
-url = "https://docs.google.com/spreadsheets/d/1MDhQpSf110rcR3bSjZ8yEBoMByLZ6Yxs-hQRsC6to1g/edit?usp=sharing"
+st.gsheet.url = "https://docs.google.com/spreadsheets/d/1MDhQpSf110rcR3bSjZ8yEBoMByLZ6Yxs-hQRsC6to1g/edit?usp=sharing"
 
 conn = st.connection("gsheets", type=GSheetsConnection)
-data = conn.read(spreadsheet=url, usecols=[0, 1, 2])
+data = conn.read(spreadsheet=st.gsheet.url, usecols=[0, 1, 2])
 
 # 정답 보이기(아래 줄은 주석처리하기!)
 # st.dataframe(data)
